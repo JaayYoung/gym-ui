@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="${#request.getContextPath()}+'/'">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>依力健身房</title>
+    <link th:href="@{/static/ui/css/owl.carousel.css}" rel="stylesheet">
+    <link th:href="@{/static/ui/css/owl.theme.css}" rel="stylesheet">
+    <link th:href="@{/static/ui/css/style.css}" rel="stylesheet">
+    <link th:href="@{/static/ui/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <link href="/static/ui/css/IE8.css" rel="stylesheet">
+    <![endif]-->
+</head>
+
+<body>
+
+<!--头部-->
+<header>
+    <!--页眉-->
+    <div class="header">
+        <div class="container">
+            <p class="p14 col-md-6 col-xs-6 text-left">依力健身房欢迎您！</p>
+            <P class="p14 col-md-6 col-xs-6 text-right">
+                <span th:text="'您好！会员' + ${member.memberName}"></span>&nbsp;
+                <span><a style="color:white;font-size: 20 " th:href="@{/logout}">退出登录</a></span>&nbsp;
+        </div>
+    </div>
+    <!--导航-->
+    <nav class="nav_top">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed mean" data-toggle="collapse" data-target="#mynavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand logo"><img src="/static/ui/images/newlogo.png"></a>
+            </div>
+            <div id="mynavbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav nav_li navbar-right">
+                    <li>
+                        <a href="/menber/index">首页</a>
+                    </li>
+                    <li>
+                        <a href="/subject/about">关于我们</a>
+                    </li>
+                    <li>
+                        <a href="/subject/show">选择私教课程</a>
+                    </li>
+                    <li>
+                        <a href="/metype/xuka">会员办续卡</a>
+                    </li>
+                    <li>
+                        <a href="/menber/index">联系我们</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<!--幻灯片-->
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner silder-top" role="listbox">
+        <div class="item active">
+            <img src="/static/ui/images/banner1.jpg">
+            <div class="carousel-caption">
+            </div>
+        </div>
+        <div class="item">
+            <img src="/static/ui/images/banner2.jpg">
+            <div class="carousel-caption">
+            </div>
+        </div>
+        <div class="item">
+            <img src="/static/ui/images/banner3.jpg">
+            <div class="carousel-caption">
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+<!--教练展示-->
+<div class="gallery">
+    <div class="container">
+        <div class="title">
+            <h2>
+                <i></i>
+                教练展示
+                <i></i>
+            </h2>
+            <span>Product Display</span>
+        </div>
+        <div class="gal-btm">
+            <div class="col-md-6 gal-gd-sec">
+                <a href="/subject/show">
+                    <figure>
+                        <img src="/static/ui/images/trainer4.jpg" class="img-responsive" alt="">
+                        <figcaption>
+                            <h3>特色教练</h3>
+
+                        </figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="col-md-6 gal-gd-sec">
+                <a href="/subject/show">
+                    <figure>
+                        <img src="/static/ui/images/trainer2.jpg" class="img-responsive" alt="">
+                        <figcaption>
+                            <h3>特色教练</h3>
+                        </figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!--探险-->
+<div class="tanxian">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tanxian_top">
+                <h1>来一场健身的探险</h1>
+                <span>AN UNKNOWN ADVANTAGE</span>
+                <P>LARGE CAPACITY FUZHONGSHEYUAN BREAKTHOUGH SELF</P>
+            </div>
+        </div>
+    </div>
+</div>
+<!--热销产品-->
+<div class="news">
+    <div class="container">
+        <div class="row">
+            <div class="title">
+                <h2>
+                    <i></i>
+                    热销设备
+                    <i></i>
+                </h2>
+                <span>Hotsale Product</span>
+            </div>
+            <div id="demo">
+                <div class="span12">
+                    <div id="owl-demo" class="owl-carousel">
+                        <div class="item rx">
+                            <img class="lazyOwl" data-src="/static/ui/images/rx1.jpg">
+                            <a href="/menber/index">跑步冲锋衣</a>
+                        </div>
+                        <div class="item rx">
+                            <img class="lazyOwl" data-src="/static/ui/images/rx2.jpg">
+                            <a href="/menber/index">户外帐篷</a>
+                        </div>
+                        <div class="item rx">
+                            <img class="lazyOwl" data-src="/static/ui/images/rx3.jpg">
+                            <a href="/menber/index">健身背包</a>
+                        </div>
+                        <div class="item rx">
+                            <img class="lazyOwl" data-src="/static/ui/images/rx4.jpg">
+                            <a href="/menber/index">健身绳索</a>
+                        </div>
+                        <div class="item rx">
+                            <img class="lazyOwl" data-src="/static/ui/images/rx5.jpg">
+                            <a href="/menber/index">健身保温壶</a>
+                        </div>
+                        <div class="item rx">
+                            <img class="lazyOwl" data-src="/static/ui/images/rx6.jpg">
+                            <a href="/menber/index">长足背包</a>
+                        </div>
+                        <div class="item rx">
+                            <img class="lazyOwl" data-src="/static/ui/images/rx7.jpg">
+                            <a href="/menber/index">方向罗盘</a>
+                        </div>
+                        <div class="item rx">
+                            <img class="lazyOwl" data-src="/static/ui/images/rx8.jpg">
+                            <a href="/menber/index">登山拐杖</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--新闻资讯-->
+<diV class="news">
+    <div class="container">
+
+        <div class="row">
+            <div class="title">
+                <h2>
+                    <i></i>
+                    新闻资讯
+                    <i></i>
+                </h2>
+                <span>News Information</span>
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                <div id="news_slide" class="news_slide_box">
+                    <div class="bd">
+                        <ul>
+                            <li>
+                                <a class="pic" href="/menber/index">
+                                    <img src="/static/ui/images/news1.jpg"/>
+                                    <span class="title">
+												健身登山徒步基本步法技巧
+											</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="pic" href="/menber/index">
+                                    <img src="/static/ui/images/news2.jpg"/>
+                                    <span class="title">
+												秋冬季户外骑行的一些常识性知识
+											</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="pic" href="/menber/index">
+                                    <img src="/static/ui/images/news12.jpg"/>
+                                    <span class="title">
+												健身用品的选购和保养
+											</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <span class="prev"></span>
+                    <span class="next"></span>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                <ul class="news_list">
+                    <li>
+                        <div class="news_pic col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                            <a href="/menber/index">
+                                <img src="/static/ui/images/news3.jpg"/>
+                            </a>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+                            <a href="/menber/index" class="news_tit">中国首次举办自行车户外用品专馆</a>
+                            <p class="news_time">2020-07-14</p>
+                            <p class="news_desc">明年4月，第22届中国国际自行车展览会中首次开设的自行车骑行运动户外用品馆颇受展商青睐，报名火热。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="news_pic col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                            <a href="/menber/index">
+                                <img src="/static/ui/images/news4.jpg"/>
+                            </a>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+                            <a href="/menber/index" class="news_tit">健身用品外贸企业欲一次性清仓</a>
+                            <p class="news_time">2020-07-15</p>
+                            <p class="news_desc">这几天来，18创富库存清仓平台异常火热，不少读者都对这里登出的库存产品很感兴趣，希望尽快与卖家取得联系。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="news_pic col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                            <a href="/menber/index">
+                                <img src="/static/ui/images/news5.jpg"/>
+                            </a>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+                            <a href="/menber/index" class="news_tit">健身行业探险而不冒险</a>
+                            <p class="news_time">2020-07-16</p>
+                            <p class="news_desc">如今，提起健身运动，不仅很多人熟知，还有很多人积极参与，继而推动户外用品市场不断升温。</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</diV>
+<!--关于我们-->
+<div class="about">
+    <div class="container">
+        <div class="row">
+            <div class="title">
+                <h2>
+                    <i></i>
+                    关于我们
+                    <i></i>
+                </h2>
+                <span>About Us</span>
+            </div>
+            <div class="col-lg-12 about_top">
+                <div class="col-md-6 col-sm-12">
+                    <a href="/subject/about"><img src="/static/ui/images/about.jpg"></a>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <h6>Outdoor Sport</h6>
+                    <div class="tip">依力健身房公司是创新型健身公司。</div>
+                    <p>依力健身房公司有限公司至今已在全国三十多个省、自治区、直辖市开设超过1000家直营或加盟门店，自2013年起，在商场普及型店铺快速增长的基础上，开启了大型专业店铺计划。
+                    </p>
+                    <span>公司文化</span>
+                    <p>依力健身房公司有限严格进行质量管理，及时引进先进设备及加强管理，加大投入，立足本地，着眼未来，稳步发展，不断迈向全国，致力于为公众提供可靠、深受信赖的产品和服务。
+                    </p>
+                    <span>公司理念</span>
+                    <p>
+                        我们一直以“热情饱满、开拓创新”为工作作风，“客户至上”为基本原则。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--联系我们-->
+<footer class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="footera-article">
+                <div class="footera-sa"><span class="top">＜</span></div>
+                <div class="footera-sm">
+                    <ul class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <li>
+                            <a href="/menber/index">首页</a>
+                        </li>
+                        <li>
+                            <a href="/subject/about">关于</a>
+                        </li>
+                        <li>
+                            <a href="/subject/show">课程服务</a>
+                        </li>
+
+                        <li>
+                            <a href="/metype/xuka">办卡服务</a>
+                        </li>
+                        <li>
+                            <a href="/menber/index">资讯</a>
+                        </li>
+                        <li>
+                            <a href="/menber/index">联系</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footera-sg">
+                    <p class="footera-sgp">公司名称：依力运动健身房有限公司&nbsp;&nbsp;&nbsp;联系电话：0512-XXXX-8757&nbsp;&nbsp;&nbsp;</p>
+                    <p class="footera_p">@2017-2027 依力运动健身房有限公司&nbsp;&nbsp;ICP备16XX9533号& 版权所有</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="/static/ui/js/jquery-3.1.1.min.js"></script>
+<script src="/static/ui/js/main.js"></script>
+<script src="/static/ui/js/bootstrap.min.js"></script>
+<script src="/static/ui/js/owl.carousel.js"></script>
+<script src="/static/ui/js/TouchSlide.1.1.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $("#owl-demo").owlCarousel({
+            items: 4,
+            lazyLoad: true,
+            navigation: true,
+            autoPlay: true
+        });
+
+    });
+</script>
+<script>
+    TouchSlide({
+        slideCell: "#slideBox",
+        titCell: ".hd li",
+        mainCell: ".bd ul",
+        effect: "leftLoop"
+        //				autoPlay:true//自动播放
+    });
+    TouchSlide({
+        slideCell: "#news_slide",
+        mainCell: ".bd ul",
+        effect: "leftLoop",
+        autoPlay: true //自动播放
+    });
+</script>
+</body>
+
+</html>
